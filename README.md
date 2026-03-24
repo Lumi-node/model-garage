@@ -1,6 +1,8 @@
 <p align="center">
-  <img src="assets/screenshots/banner.svg" alt="Model Garage" width="700">
+  <img src="assets/images/hero_garage_floor.jpg" alt="Model Garage" width="900">
 </p>
+
+<h1 align="center">Model Garage</h1>
 
 <p align="center">
   <strong>Open the hood on neural networks.</strong>
@@ -73,6 +75,10 @@ for name, part in spec.parts.items():
 
 ### Extract
 
+<p align="center">
+  <img src="assets/images/extraction_surgery.jpg" alt="Extracting attention from a model" width="700">
+</p>
+
 Pull real `nn.Module` components from any supported transformer:
 
 ```python
@@ -108,6 +114,10 @@ with LayerInjector(model) as injector:
 ```
 
 ### Analyze
+
+<p align="center">
+  <img src="assets/images/diagnostic_scanner.jpg" alt="Neural Net Diagnostic Scanner" width="700">
+</p>
 
 Capture and inspect hidden states at any layer:
 
@@ -174,6 +184,10 @@ with SelfDebate(model, layer_idx=6, reconciliation_method="gated"):
 Decomposed and ready for surgery from: Alibaba, ByteDance, Facebook/Meta, Google, LightOn, Microsoft, Moonshot, NVIDIA, Sesame, StepFun, Tencent, Wan-AI, and more. Includes language, vision, medical, protein, 3D, audio, video, OCR, and robotics models.
 
 ### Zero-Training Expert Router (Rust)
+
+<p align="center">
+  <img src="assets/images/router_switchboard.jpg" alt="Zero-Training Expert Router" width="700">
+</p>
 
 Model Garage includes a **zero-training semantic router** for MoE and multi-expert systems:
 
