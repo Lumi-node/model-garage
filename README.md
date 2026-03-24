@@ -10,7 +10,7 @@
   <a href="https://pypi.org/project/model-garage/"><img src="https://img.shields.io/pypi/v/model-garage?style=flat-square&color=cyan" alt="PyPI"></a>
   <a href="https://github.com/model-garage/model-garage/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" alt="License"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/pypi/pyversions/model-garage?style=flat-square" alt="Python"></a>
-  <img src="https://img.shields.io/badge/models-6%2B%20families-green?style=flat-square" alt="Models">
+  <img src="https://img.shields.io/badge/models-70%2B%20across%2018%20vendors-green?style=flat-square" alt="Models">
   <img src="https://img.shields.io/badge/tests-77%20passing-brightgreen?style=flat-square" alt="Tests">
 </p>
 
@@ -152,17 +152,41 @@ with SelfDebate(model, layer_idx=6, reconciliation_method="gated"):
     output = model.generate(input_ids, max_new_tokens=50)
 ```
 
-## Supported Model Families
+## Supported Architectures
 
-| Family | Models | Status |
-|--------|--------|--------|
-| **GPT-2** | gpt2, gpt2-medium, gpt2-large, gpt2-xl, distilgpt2 | Full support |
-| **Llama** | Llama-2-7b, Llama-3-8b, TinyLlama, CodeLlama | Full support |
-| **Phi** | Phi-2, Phi-3-mini, Phi-3.5, Phi-4 | Full support |
-| **Mistral** | Mistral-7B, Mixtral-8x7B | Full support |
-| **Gemma** | Gemma-2b, Gemma-7b, Gemma-2-9b | Full support |
-| **Qwen** | Qwen-1.5, Qwen-2 | Full support |
-| **BERT** | bert-base, bert-large, distilbert | Extraction only |
+### Decomposition Families (Full Surgery Support)
+
+| Family | Models | Capabilities |
+|--------|--------|-------------|
+| **GPT-2** | gpt2, gpt2-medium, gpt2-large, gpt2-xl, distilgpt2 | Extract, inject, analyze, compose |
+| **Llama** | Llama-2-7b, Llama-3-8b, TinyLlama, CodeLlama | Extract, inject, analyze, compose |
+| **Phi** | Phi-2, Phi-3.5, Phi-4, Phi-4-reasoning, MediPhi, Fara-7B | Extract, inject, analyze, compose |
+| **Phi-MoE** | Phi-3.5-MoE, Phi-mini-MoE, Phi-tiny-MoE | Extract, inject, MoE routing, blade injection |
+| **Mistral** | Mistral-7B, Mixtral-8x7B | Extract, inject, analyze, compose |
+| **Gemma** | Gemma-2b/7b, Gemma-3, FunctionGemma, MedGemma, VaultGemma | Extract, inject, analyze, compose |
+| **Qwen** | Qwen-1.5, Qwen-2, Kimi-K2.5 | Extract, inject, analyze, compose |
+| **BERT/Encoders** | bert-base/large, distilbert, MiniLM, mpnet | Extraction, analysis |
+| **Protein** | ESM2 (8M to 3B) | Extraction, analysis |
+| **BitNet** | bitnet-b1.58-2B-4T | Extraction, analysis |
+
+### Models in Repository (70+ across 18 vendors)
+
+Decomposed and ready for surgery from: Alibaba, ByteDance, Facebook/Meta, Google, LightOn, Microsoft, Moonshot, NVIDIA, Sesame, StepFun, Tencent, Wan-AI, and more. Includes language, vision, medical, protein, 3D, audio, video, OCR, and robotics models.
+
+### Zero-Training Expert Router (Rust)
+
+Model Garage includes a **zero-training semantic router** for MoE and multi-expert systems:
+
+- **No training required** — routes via embedding similarity against expert manifests
+- **Sub-2ms routing** at 500+ queries/sec (Python) with Rust core for production
+- **DAG execution** — wave-based parallel dispatch for multi-expert pipelines
+- **Complexity detection** — automatic simple vs. complex path selection
+- **OS-style extensibility** — add an expert by dropping a `manifest.json`
+
+```
+Query → Embedding → Cosine Similarity → Best Expert(s) → DAG Execution
+         (MiniLM)     (vs manifests)      (scored)        (parallel)
+```
 
 Adding a new family? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
