@@ -18,7 +18,7 @@ Hidden state injection between specialized models achieves **+14.2% accuracy** o
 
 **[PDF](moe-miscalibration/main.pdf)** | **[LaTeX Source](moe-miscalibration/main.tex)**
 
-Per-layer expert isolation reveals that learned MoE routers show **Spearman rho ~ 0** between routing probability and expert quality. 207/896 expert-layer-domain combinations show statistically significant specialization (BH FDR, alpha=0.05), yet the router ignores it.
+Per-layer expert isolation reveals that learned MoE routers show **Spearman rho = 0.069** between routing probability and expert quality. **482/896** expert-layer-domain combinations show statistically significant specialization (BH FDR, alpha=0.05), yet the router ignores it. v4.0 experiment with 5x more data, per-layer confidence intervals, and random baselines.
 
 *Model Garage modules used: `analyze`, `core.hooks`, `registry`*
 
