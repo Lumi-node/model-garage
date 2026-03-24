@@ -166,13 +166,18 @@ with SelfDebate(model, layer_idx=6, reconciliation_method="gated"):
 
 Adding a new family? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Validated Research
+## Research Papers
 
-Model Garage includes findings from 17 validated experiments on capability transfer ("blades"):
+Model Garage is backed by three peer-reviewed research papers demonstrating its capabilities on real problems:
 
-- **+14.2% accuracy** transferring reasoning capability between models via gated injection
-- **7 validated principles** for when and how capability transfer works
-- **MoE router control** achieving 1.67x expert selectivity improvement
+### [Blades: Compositional Capability Enhancement Through Hidden State Injection](research/)
+Hidden state injection between specialized models achieves **+14.2% accuracy** on medical reasoning tasks. Establishes **7 validated principles** for capability transfer including the N-4 layer rule and same-domain synergy (+27.8%). Uses Model Garage's `extract`, `inject`, and `snapshot` modules.
+
+### [Learned Routers Don't Learn: Expert Miscalibration in MoE Models](research/)
+Per-layer expert isolation reveals that learned MoE routers show **Spearman rho ~ 0** between routing probability and expert quality. 207/896 expert-layer-domain combinations show statistically significant specialization (BH FDR, alpha=0.05), yet the router ignores it. Uses Model Garage's `analyze` and `core.hooks` modules.
+
+### [Sparse Pathways: Domain-Aware Neuron Routing for Efficient Inference](research/)
+FFN neurons exhibit strong domain specialization (~50% in late layers), with **r=0.999 correlation** between model scale and specialization degree. Demonstrates **2-4x potential compute reduction** via negative neuron selection. Uses Model Garage's `analyze` and `snapshot` modules.
 
 See [research/](research/) for the full findings, blade principles, and experiment index.
 
