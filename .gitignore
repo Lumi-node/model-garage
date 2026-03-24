@@ -20,6 +20,10 @@ ENV/
 *.h5
 models/
 
+# Exception: allow pretrained blades and extracted components in research/
+!research/pretrained-blades/*.pt
+!research/extracted-components/**/*.pt
+
 # Data
 *.db
 

@@ -1,0 +1,11 @@
+{
+  "part_type": "attention",
+  "layer_idx": 6,
+  "module_path": "transformer.h.6.attn",
+  "input_dim": 768,
+  "output_dim": 768,
+  "num_heads": 12,
+  "head_dim": 64,
+  "intermediate_dim": null,
+  "extra_info": {}
+}
