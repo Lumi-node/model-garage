@@ -1,23 +1,20 @@
-```
- ╔══════════════════════════════════════════════════════════╗
- ║  ███╗   ███╗ ██████╗ ██████╗ ███████╗██╗                ║
- ║  ████╗ ████║██╔═══██╗██╔══██╗██╔════╝██║                ║
- ║  ██╔████╔██║██║   ██║██║  ██║█████╗  ██║                ║
- ║  ██║╚██╔╝██║██║   ██║██║  ██║██╔══╝  ██║                ║
- ║  ██║ ╚═╝ ██║╚██████╔╝██████╔╝███████╗███████╗           ║
- ║  ╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝╚══════╝           ║
- ║   ██████╗  █████╗ ██████╗  █████╗  ██████╗ ███████╗     ║
- ║  ██╔════╝ ██╔══██╗██╔══██╗██╔══██╗██╔════╝ ██╔════╝     ║
- ║  ██║  ███╗███████║██████╔╝███████║██║  ███╗█████╗       ║
- ║  ██║   ██║██╔══██║██╔══██╗██╔══██║██║   ██║██╔══╝       ║
- ║  ╚██████╔╝██║  ██║██║  ██║██║  ██║╚██████╔╝███████╗     ║
- ║   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝     ║
- ╚══════════════════════════════════════════════════════════╝
-```
+<p align="center">
+  <img src="assets/screenshots/banner.svg" alt="Model Garage" width="700">
+</p>
 
-# Model Garage
+<p align="center">
+  <strong>Open the hood on neural networks.</strong>
+</p>
 
-**Open the hood on neural networks.**
+<p align="center">
+  <a href="https://pypi.org/project/model-garage/"><img src="https://img.shields.io/pypi/v/model-garage?style=flat-square&color=cyan" alt="PyPI"></a>
+  <a href="https://github.com/model-garage/model-garage/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" alt="License"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/pypi/pyversions/model-garage?style=flat-square" alt="Python"></a>
+  <img src="https://img.shields.io/badge/models-6%2B%20families-green?style=flat-square" alt="Models">
+  <img src="https://img.shields.io/badge/tests-77%20passing-brightgreen?style=flat-square" alt="Tests">
+</p>
+
+---
 
 Component-level model surgery, analysis, and composition. Extract attention heads, swap FFN layers between models, inject capability blades, and build hybrid architectures — all from a beautiful CLI or Python API.
 
@@ -44,6 +41,16 @@ garage compare gpt2 distilgpt2
 # Analyze activations across layers
 garage analyze gpt2 --prompt "The meaning of life is"
 ```
+
+<details>
+<summary><strong>See CLI output examples</strong></summary>
+
+<p align="center"><img src="assets/screenshots/model_card.svg" alt="garage open" width="500"></p>
+<p align="center"><img src="assets/screenshots/extract.svg" alt="garage extract" width="600"></p>
+<p align="center"><img src="assets/screenshots/analyze.svg" alt="garage analyze" width="580"></p>
+<p align="center"><img src="assets/screenshots/compare.svg" alt="garage compare" width="500"></p>
+
+</details>
 
 Or use the Python API directly:
 
