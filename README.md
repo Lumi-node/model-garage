@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://pypi.org/project/model-garage/"><img src="https://img.shields.io/pypi/v/model-garage?style=flat-square&color=cyan" alt="PyPI"></a>
-  <a href="https://github.com/model-garage/model-garage/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" alt="License"></a>
+  <a href="https://github.com/Lumi-node/model-garage/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square" alt="License"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/pypi/pyversions/model-garage?style=flat-square" alt="Python"></a>
   <img src="https://img.shields.io/badge/models-70%2B%20across%2018%20vendors-green?style=flat-square" alt="Models">
   <img src="https://img.shields.io/badge/tests-77%20passing-brightgreen?style=flat-square" alt="Tests">
