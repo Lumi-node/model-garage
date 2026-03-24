@@ -39,6 +39,16 @@ htmlcov/
 .env
 .env.*
 
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
 # OS
 .DS_Store
 Thumbs.db
