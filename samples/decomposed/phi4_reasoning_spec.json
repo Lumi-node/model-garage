@@ -1,0 +1,2062 @@
+{
+  "model_id": "microsoft/Phi-4-mini-reasoning",
+  "family": "llama",
+  "hidden_dim": 3072,
+  "num_layers": 32,
+  "num_heads": 24,
+  "vocab_size": 200064,
+  "max_seq_len": 131072,
+  "parts": {
+    "embedding": {
+      "part_type": "embedding",
+      "layer_idx": null,
+      "module_path": "model.embed_tokens",
+      "input_dim": 200064,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {}
+    },
+    "attention_0": {
+      "part_type": "attention",
+      "layer_idx": 0,
+      "module_path": "model.layers.0.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_0": {
+      "part_type": "ffn",
+      "layer_idx": 0,
+      "module_path": "model.layers.0.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_0": {
+      "part_type": "layer_norm",
+      "layer_idx": 0,
+      "module_path": "model.layers.0.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_0": {
+      "part_type": "layer_norm",
+      "layer_idx": 0,
+      "module_path": "model.layers.0.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_0": {
+      "part_type": "full_layer",
+      "layer_idx": 0,
+      "module_path": "model.layers.0",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_1": {
+      "part_type": "attention",
+      "layer_idx": 1,
+      "module_path": "model.layers.1.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_1": {
+      "part_type": "ffn",
+      "layer_idx": 1,
+      "module_path": "model.layers.1.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_1": {
+      "part_type": "layer_norm",
+      "layer_idx": 1,
+      "module_path": "model.layers.1.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_1": {
+      "part_type": "layer_norm",
+      "layer_idx": 1,
+      "module_path": "model.layers.1.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_1": {
+      "part_type": "full_layer",
+      "layer_idx": 1,
+      "module_path": "model.layers.1",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_2": {
+      "part_type": "attention",
+      "layer_idx": 2,
+      "module_path": "model.layers.2.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_2": {
+      "part_type": "ffn",
+      "layer_idx": 2,
+      "module_path": "model.layers.2.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_2": {
+      "part_type": "layer_norm",
+      "layer_idx": 2,
+      "module_path": "model.layers.2.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_2": {
+      "part_type": "layer_norm",
+      "layer_idx": 2,
+      "module_path": "model.layers.2.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_2": {
+      "part_type": "full_layer",
+      "layer_idx": 2,
+      "module_path": "model.layers.2",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_3": {
+      "part_type": "attention",
+      "layer_idx": 3,
+      "module_path": "model.layers.3.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_3": {
+      "part_type": "ffn",
+      "layer_idx": 3,
+      "module_path": "model.layers.3.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_3": {
+      "part_type": "layer_norm",
+      "layer_idx": 3,
+      "module_path": "model.layers.3.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_3": {
+      "part_type": "layer_norm",
+      "layer_idx": 3,
+      "module_path": "model.layers.3.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_3": {
+      "part_type": "full_layer",
+      "layer_idx": 3,
+      "module_path": "model.layers.3",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_4": {
+      "part_type": "attention",
+      "layer_idx": 4,
+      "module_path": "model.layers.4.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_4": {
+      "part_type": "ffn",
+      "layer_idx": 4,
+      "module_path": "model.layers.4.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_4": {
+      "part_type": "layer_norm",
+      "layer_idx": 4,
+      "module_path": "model.layers.4.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_4": {
+      "part_type": "layer_norm",
+      "layer_idx": 4,
+      "module_path": "model.layers.4.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_4": {
+      "part_type": "full_layer",
+      "layer_idx": 4,
+      "module_path": "model.layers.4",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_5": {
+      "part_type": "attention",
+      "layer_idx": 5,
+      "module_path": "model.layers.5.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_5": {
+      "part_type": "ffn",
+      "layer_idx": 5,
+      "module_path": "model.layers.5.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_5": {
+      "part_type": "layer_norm",
+      "layer_idx": 5,
+      "module_path": "model.layers.5.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_5": {
+      "part_type": "layer_norm",
+      "layer_idx": 5,
+      "module_path": "model.layers.5.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_5": {
+      "part_type": "full_layer",
+      "layer_idx": 5,
+      "module_path": "model.layers.5",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_6": {
+      "part_type": "attention",
+      "layer_idx": 6,
+      "module_path": "model.layers.6.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_6": {
+      "part_type": "ffn",
+      "layer_idx": 6,
+      "module_path": "model.layers.6.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_6": {
+      "part_type": "layer_norm",
+      "layer_idx": 6,
+      "module_path": "model.layers.6.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_6": {
+      "part_type": "layer_norm",
+      "layer_idx": 6,
+      "module_path": "model.layers.6.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_6": {
+      "part_type": "full_layer",
+      "layer_idx": 6,
+      "module_path": "model.layers.6",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_7": {
+      "part_type": "attention",
+      "layer_idx": 7,
+      "module_path": "model.layers.7.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_7": {
+      "part_type": "ffn",
+      "layer_idx": 7,
+      "module_path": "model.layers.7.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_7": {
+      "part_type": "layer_norm",
+      "layer_idx": 7,
+      "module_path": "model.layers.7.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_7": {
+      "part_type": "layer_norm",
+      "layer_idx": 7,
+      "module_path": "model.layers.7.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_7": {
+      "part_type": "full_layer",
+      "layer_idx": 7,
+      "module_path": "model.layers.7",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_8": {
+      "part_type": "attention",
+      "layer_idx": 8,
+      "module_path": "model.layers.8.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_8": {
+      "part_type": "ffn",
+      "layer_idx": 8,
+      "module_path": "model.layers.8.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_8": {
+      "part_type": "layer_norm",
+      "layer_idx": 8,
+      "module_path": "model.layers.8.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_8": {
+      "part_type": "layer_norm",
+      "layer_idx": 8,
+      "module_path": "model.layers.8.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_8": {
+      "part_type": "full_layer",
+      "layer_idx": 8,
+      "module_path": "model.layers.8",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_9": {
+      "part_type": "attention",
+      "layer_idx": 9,
+      "module_path": "model.layers.9.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_9": {
+      "part_type": "ffn",
+      "layer_idx": 9,
+      "module_path": "model.layers.9.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_9": {
+      "part_type": "layer_norm",
+      "layer_idx": 9,
+      "module_path": "model.layers.9.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_9": {
+      "part_type": "layer_norm",
+      "layer_idx": 9,
+      "module_path": "model.layers.9.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_9": {
+      "part_type": "full_layer",
+      "layer_idx": 9,
+      "module_path": "model.layers.9",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_10": {
+      "part_type": "attention",
+      "layer_idx": 10,
+      "module_path": "model.layers.10.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_10": {
+      "part_type": "ffn",
+      "layer_idx": 10,
+      "module_path": "model.layers.10.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_10": {
+      "part_type": "layer_norm",
+      "layer_idx": 10,
+      "module_path": "model.layers.10.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_10": {
+      "part_type": "layer_norm",
+      "layer_idx": 10,
+      "module_path": "model.layers.10.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_10": {
+      "part_type": "full_layer",
+      "layer_idx": 10,
+      "module_path": "model.layers.10",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_11": {
+      "part_type": "attention",
+      "layer_idx": 11,
+      "module_path": "model.layers.11.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_11": {
+      "part_type": "ffn",
+      "layer_idx": 11,
+      "module_path": "model.layers.11.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_11": {
+      "part_type": "layer_norm",
+      "layer_idx": 11,
+      "module_path": "model.layers.11.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_11": {
+      "part_type": "layer_norm",
+      "layer_idx": 11,
+      "module_path": "model.layers.11.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_11": {
+      "part_type": "full_layer",
+      "layer_idx": 11,
+      "module_path": "model.layers.11",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_12": {
+      "part_type": "attention",
+      "layer_idx": 12,
+      "module_path": "model.layers.12.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_12": {
+      "part_type": "ffn",
+      "layer_idx": 12,
+      "module_path": "model.layers.12.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_12": {
+      "part_type": "layer_norm",
+      "layer_idx": 12,
+      "module_path": "model.layers.12.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_12": {
+      "part_type": "layer_norm",
+      "layer_idx": 12,
+      "module_path": "model.layers.12.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_12": {
+      "part_type": "full_layer",
+      "layer_idx": 12,
+      "module_path": "model.layers.12",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_13": {
+      "part_type": "attention",
+      "layer_idx": 13,
+      "module_path": "model.layers.13.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_13": {
+      "part_type": "ffn",
+      "layer_idx": 13,
+      "module_path": "model.layers.13.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_13": {
+      "part_type": "layer_norm",
+      "layer_idx": 13,
+      "module_path": "model.layers.13.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_13": {
+      "part_type": "layer_norm",
+      "layer_idx": 13,
+      "module_path": "model.layers.13.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_13": {
+      "part_type": "full_layer",
+      "layer_idx": 13,
+      "module_path": "model.layers.13",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_14": {
+      "part_type": "attention",
+      "layer_idx": 14,
+      "module_path": "model.layers.14.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_14": {
+      "part_type": "ffn",
+      "layer_idx": 14,
+      "module_path": "model.layers.14.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_14": {
+      "part_type": "layer_norm",
+      "layer_idx": 14,
+      "module_path": "model.layers.14.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_14": {
+      "part_type": "layer_norm",
+      "layer_idx": 14,
+      "module_path": "model.layers.14.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_14": {
+      "part_type": "full_layer",
+      "layer_idx": 14,
+      "module_path": "model.layers.14",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_15": {
+      "part_type": "attention",
+      "layer_idx": 15,
+      "module_path": "model.layers.15.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_15": {
+      "part_type": "ffn",
+      "layer_idx": 15,
+      "module_path": "model.layers.15.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_15": {
+      "part_type": "layer_norm",
+      "layer_idx": 15,
+      "module_path": "model.layers.15.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_15": {
+      "part_type": "layer_norm",
+      "layer_idx": 15,
+      "module_path": "model.layers.15.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_15": {
+      "part_type": "full_layer",
+      "layer_idx": 15,
+      "module_path": "model.layers.15",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_16": {
+      "part_type": "attention",
+      "layer_idx": 16,
+      "module_path": "model.layers.16.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_16": {
+      "part_type": "ffn",
+      "layer_idx": 16,
+      "module_path": "model.layers.16.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_16": {
+      "part_type": "layer_norm",
+      "layer_idx": 16,
+      "module_path": "model.layers.16.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_16": {
+      "part_type": "layer_norm",
+      "layer_idx": 16,
+      "module_path": "model.layers.16.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_16": {
+      "part_type": "full_layer",
+      "layer_idx": 16,
+      "module_path": "model.layers.16",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_17": {
+      "part_type": "attention",
+      "layer_idx": 17,
+      "module_path": "model.layers.17.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_17": {
+      "part_type": "ffn",
+      "layer_idx": 17,
+      "module_path": "model.layers.17.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_17": {
+      "part_type": "layer_norm",
+      "layer_idx": 17,
+      "module_path": "model.layers.17.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_17": {
+      "part_type": "layer_norm",
+      "layer_idx": 17,
+      "module_path": "model.layers.17.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_17": {
+      "part_type": "full_layer",
+      "layer_idx": 17,
+      "module_path": "model.layers.17",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_18": {
+      "part_type": "attention",
+      "layer_idx": 18,
+      "module_path": "model.layers.18.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_18": {
+      "part_type": "ffn",
+      "layer_idx": 18,
+      "module_path": "model.layers.18.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_18": {
+      "part_type": "layer_norm",
+      "layer_idx": 18,
+      "module_path": "model.layers.18.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_18": {
+      "part_type": "layer_norm",
+      "layer_idx": 18,
+      "module_path": "model.layers.18.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_18": {
+      "part_type": "full_layer",
+      "layer_idx": 18,
+      "module_path": "model.layers.18",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_19": {
+      "part_type": "attention",
+      "layer_idx": 19,
+      "module_path": "model.layers.19.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_19": {
+      "part_type": "ffn",
+      "layer_idx": 19,
+      "module_path": "model.layers.19.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_19": {
+      "part_type": "layer_norm",
+      "layer_idx": 19,
+      "module_path": "model.layers.19.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_19": {
+      "part_type": "layer_norm",
+      "layer_idx": 19,
+      "module_path": "model.layers.19.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_19": {
+      "part_type": "full_layer",
+      "layer_idx": 19,
+      "module_path": "model.layers.19",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_20": {
+      "part_type": "attention",
+      "layer_idx": 20,
+      "module_path": "model.layers.20.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_20": {
+      "part_type": "ffn",
+      "layer_idx": 20,
+      "module_path": "model.layers.20.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_20": {
+      "part_type": "layer_norm",
+      "layer_idx": 20,
+      "module_path": "model.layers.20.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_20": {
+      "part_type": "layer_norm",
+      "layer_idx": 20,
+      "module_path": "model.layers.20.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_20": {
+      "part_type": "full_layer",
+      "layer_idx": 20,
+      "module_path": "model.layers.20",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_21": {
+      "part_type": "attention",
+      "layer_idx": 21,
+      "module_path": "model.layers.21.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_21": {
+      "part_type": "ffn",
+      "layer_idx": 21,
+      "module_path": "model.layers.21.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_21": {
+      "part_type": "layer_norm",
+      "layer_idx": 21,
+      "module_path": "model.layers.21.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_21": {
+      "part_type": "layer_norm",
+      "layer_idx": 21,
+      "module_path": "model.layers.21.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_21": {
+      "part_type": "full_layer",
+      "layer_idx": 21,
+      "module_path": "model.layers.21",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_22": {
+      "part_type": "attention",
+      "layer_idx": 22,
+      "module_path": "model.layers.22.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_22": {
+      "part_type": "ffn",
+      "layer_idx": 22,
+      "module_path": "model.layers.22.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_22": {
+      "part_type": "layer_norm",
+      "layer_idx": 22,
+      "module_path": "model.layers.22.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_22": {
+      "part_type": "layer_norm",
+      "layer_idx": 22,
+      "module_path": "model.layers.22.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_22": {
+      "part_type": "full_layer",
+      "layer_idx": 22,
+      "module_path": "model.layers.22",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_23": {
+      "part_type": "attention",
+      "layer_idx": 23,
+      "module_path": "model.layers.23.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_23": {
+      "part_type": "ffn",
+      "layer_idx": 23,
+      "module_path": "model.layers.23.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_23": {
+      "part_type": "layer_norm",
+      "layer_idx": 23,
+      "module_path": "model.layers.23.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_23": {
+      "part_type": "layer_norm",
+      "layer_idx": 23,
+      "module_path": "model.layers.23.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_23": {
+      "part_type": "full_layer",
+      "layer_idx": 23,
+      "module_path": "model.layers.23",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_24": {
+      "part_type": "attention",
+      "layer_idx": 24,
+      "module_path": "model.layers.24.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_24": {
+      "part_type": "ffn",
+      "layer_idx": 24,
+      "module_path": "model.layers.24.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_24": {
+      "part_type": "layer_norm",
+      "layer_idx": 24,
+      "module_path": "model.layers.24.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_24": {
+      "part_type": "layer_norm",
+      "layer_idx": 24,
+      "module_path": "model.layers.24.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_24": {
+      "part_type": "full_layer",
+      "layer_idx": 24,
+      "module_path": "model.layers.24",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_25": {
+      "part_type": "attention",
+      "layer_idx": 25,
+      "module_path": "model.layers.25.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_25": {
+      "part_type": "ffn",
+      "layer_idx": 25,
+      "module_path": "model.layers.25.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_25": {
+      "part_type": "layer_norm",
+      "layer_idx": 25,
+      "module_path": "model.layers.25.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_25": {
+      "part_type": "layer_norm",
+      "layer_idx": 25,
+      "module_path": "model.layers.25.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_25": {
+      "part_type": "full_layer",
+      "layer_idx": 25,
+      "module_path": "model.layers.25",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_26": {
+      "part_type": "attention",
+      "layer_idx": 26,
+      "module_path": "model.layers.26.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_26": {
+      "part_type": "ffn",
+      "layer_idx": 26,
+      "module_path": "model.layers.26.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_26": {
+      "part_type": "layer_norm",
+      "layer_idx": 26,
+      "module_path": "model.layers.26.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_26": {
+      "part_type": "layer_norm",
+      "layer_idx": 26,
+      "module_path": "model.layers.26.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_26": {
+      "part_type": "full_layer",
+      "layer_idx": 26,
+      "module_path": "model.layers.26",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_27": {
+      "part_type": "attention",
+      "layer_idx": 27,
+      "module_path": "model.layers.27.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_27": {
+      "part_type": "ffn",
+      "layer_idx": 27,
+      "module_path": "model.layers.27.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_27": {
+      "part_type": "layer_norm",
+      "layer_idx": 27,
+      "module_path": "model.layers.27.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_27": {
+      "part_type": "layer_norm",
+      "layer_idx": 27,
+      "module_path": "model.layers.27.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_27": {
+      "part_type": "full_layer",
+      "layer_idx": 27,
+      "module_path": "model.layers.27",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_28": {
+      "part_type": "attention",
+      "layer_idx": 28,
+      "module_path": "model.layers.28.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_28": {
+      "part_type": "ffn",
+      "layer_idx": 28,
+      "module_path": "model.layers.28.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_28": {
+      "part_type": "layer_norm",
+      "layer_idx": 28,
+      "module_path": "model.layers.28.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_28": {
+      "part_type": "layer_norm",
+      "layer_idx": 28,
+      "module_path": "model.layers.28.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_28": {
+      "part_type": "full_layer",
+      "layer_idx": 28,
+      "module_path": "model.layers.28",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_29": {
+      "part_type": "attention",
+      "layer_idx": 29,
+      "module_path": "model.layers.29.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_29": {
+      "part_type": "ffn",
+      "layer_idx": 29,
+      "module_path": "model.layers.29.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_29": {
+      "part_type": "layer_norm",
+      "layer_idx": 29,
+      "module_path": "model.layers.29.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_29": {
+      "part_type": "layer_norm",
+      "layer_idx": 29,
+      "module_path": "model.layers.29.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_29": {
+      "part_type": "full_layer",
+      "layer_idx": 29,
+      "module_path": "model.layers.29",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_30": {
+      "part_type": "attention",
+      "layer_idx": 30,
+      "module_path": "model.layers.30.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_30": {
+      "part_type": "ffn",
+      "layer_idx": 30,
+      "module_path": "model.layers.30.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_30": {
+      "part_type": "layer_norm",
+      "layer_idx": 30,
+      "module_path": "model.layers.30.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_30": {
+      "part_type": "layer_norm",
+      "layer_idx": 30,
+      "module_path": "model.layers.30.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_30": {
+      "part_type": "full_layer",
+      "layer_idx": 30,
+      "module_path": "model.layers.30",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "attention_31": {
+      "part_type": "attention",
+      "layer_idx": 31,
+      "module_path": "model.layers.31.self_attn",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": 128,
+      "intermediate_dim": null,
+      "extra_info": {
+        "num_kv_heads": 8
+      }
+    },
+    "ffn_31": {
+      "part_type": "ffn",
+      "layer_idx": 31,
+      "module_path": "model.layers.31.mlp",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {
+        "activation": "silu"
+      }
+    },
+    "input_layernorm_31": {
+      "part_type": "layer_norm",
+      "layer_idx": 31,
+      "module_path": "model.layers.31.input_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "post_attention_layernorm_31": {
+      "part_type": "layer_norm",
+      "layer_idx": 31,
+      "module_path": "model.layers.31.post_attention_layernorm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "layer_31": {
+      "part_type": "full_layer",
+      "layer_idx": 31,
+      "module_path": "model.layers.31",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": 24,
+      "head_dim": null,
+      "intermediate_dim": 8192,
+      "extra_info": {}
+    },
+    "norm": {
+      "part_type": "layer_norm",
+      "layer_idx": null,
+      "module_path": "model.norm",
+      "input_dim": 3072,
+      "output_dim": 3072,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {
+        "type": "rmsnorm"
+      }
+    },
+    "output_head": {
+      "part_type": "output_head",
+      "layer_idx": null,
+      "module_path": "lm_head",
+      "input_dim": 3072,
+      "output_dim": 200064,
+      "num_heads": null,
+      "head_dim": null,
+      "intermediate_dim": null,
+      "extra_info": {}
+    }
+  }
+}

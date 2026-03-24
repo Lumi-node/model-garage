@@ -1,0 +1,66 @@
+{
+  "id": "lighton-ocr-2b",
+  "name": "LightOnOCR-2-1B",
+  "version": "1.0.0",
+  "capabilities": [
+    "ocr",
+    "document-understanding",
+    "text-extraction",
+    "handwriting-recognition",
+    "table-extraction",
+    "receipt-parsing",
+    "invoice-parsing",
+    "form-extraction"
+  ],
+  "domains": [
+    "document",
+    "business",
+    "general"
+  ],
+  "tasks": [
+    "extraction",
+    "recognition",
+    "parsing"
+  ],
+  "input_types": ["image"],
+  "output_types": ["text", "structured"],
+  "resources": {
+    "vram_gb": 4.0,
+    "ram_gb": 8.0,
+    "disk_gb": 1.9,
+    "gpu_required": true,
+    "min_compute_capability": 7.0
+  },
+  "performance": {
+    "latency_ms": 150,
+    "throughput_tps": 10,
+    "cost_relative": 0.3,
+    "quality_score": 0.91
+  },
+  "model_path": "lightonai/LightOnOCR-2-1B",
+  "model_type": "transformers",
+  "model_class": "LightOnOCRForConditionalGeneration",
+  "trust_remote_code": true,
+  "description": "Lightweight OCR model specialized for document text extraction, handwriting recognition, table parsing, and structured data extraction from images. Fast and efficient for production use.",
+  "author": "LightOn AI",
+  "license": "apache-2.0",
+  "tags": ["ocr", "document-ai", "multimodal", "vision-language", "text-extraction"],
+  "benchmarks": {
+    "ocr_accuracy": 0.94,
+    "table_f1": 0.89,
+    "handwriting_cer": 0.08,
+    "receipt_accuracy": 0.92
+  },
+  "sample_inputs": [
+    "Extract all text from this scanned document",
+    "Parse this receipt and list all items with prices",
+    "Read the handwritten notes in this image",
+    "Extract the table data from this spreadsheet image",
+    "Get the invoice number and total from this invoice"
+  ],
+  "sample_outputs": [
+    "Document text: [extracted content...]",
+    "{\"items\": [{\"name\": \"Coffee\", \"price\": 4.50}, ...], \"total\": 23.75}",
+    "Handwritten text: 'Meeting notes from Tuesday...'"
+  ]
+}

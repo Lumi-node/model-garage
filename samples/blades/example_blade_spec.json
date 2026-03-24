@@ -1,0 +1,31 @@
+{
+  "blade_type": "capability_transfer",
+  "source_model": "microsoft/Phi-4-mini-reasoning",
+  "target_models": ["microsoft/MediPhi", "microsoft/Phi-3.5-mini-instruct"],
+  "capability": "mathematical_reasoning",
+  "injection_layer": "N-4",
+  "injection_method": "gated",
+  "hidden_dim": 3072,
+  "extraction_prompt": "Solve step by step: What is the integral of sin(x)*cos(x)?",
+  "validated_results": {
+    "MediPhi": {
+      "baseline_accuracy": 0.42,
+      "with_blade_accuracy": 0.562,
+      "improvement": "+14.2%",
+      "benchmark": "medical_reasoning_qa",
+      "n_samples": 500
+    }
+  },
+  "principles_applied": [
+    "N-4 layer rule (87.5% depth)",
+    "Same dimension (3072d source and target)",
+    "Capability gap (reasoning > medical baseline)",
+    "Gated injection (+8.9% over identity)"
+  ],
+  "metadata": {
+    "created": "2026-03-24",
+    "toolkit_version": "0.1.0",
+    "experiment_id": "exp_t04",
+    "paper": "Blades: Compositional Capability Enhancement Through Hidden State Injection"
+  }
+}

@@ -1,0 +1,29 @@
+Model Garage
+Copyright 2026 Model Garage Contributors
+
+This product includes software developed by the Model Garage project
+(https://github.com/Lumi-node/model-garage).
+
+Licensed under the Apache License, Version 2.0.
+
+ATTRIBUTION REQUIREMENT:
+If you use Model Garage in your research, software, or derivative works,
+please include the following attribution:
+
+  "Built with Model Garage (https://github.com/Lumi-node/model-garage)"
+
+For academic publications, please cite:
+
+  @software{model_garage,
+    title = {Model Garage: Component-Level Neural Network Surgery},
+    author = {Model Garage Contributors},
+    year = {2026},
+    url = {https://github.com/Lumi-node/model-garage},
+    license = {Apache-2.0}
+  }
+
+Related publications:
+
+  - "Blades: Compositional Capability Enhancement Through Hidden State Injection"
+  - "Learned Routers Don't Learn: Expert Miscalibration in MoE Models"
+  - "Sparse Pathways: Domain-Aware Neuron Routing for Efficient Inference"

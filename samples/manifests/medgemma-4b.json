@@ -1,0 +1,65 @@
+{
+  "id": "medgemma-4b",
+  "name": "MedGemma-4B-it",
+  "version": "1.0.0",
+  "capabilities": [
+    "medical-qa",
+    "clinical-reasoning",
+    "diagnosis-support",
+    "medical-terminology",
+    "patient-education",
+    "symptom-analysis",
+    "drug-interaction",
+    "medical-summarization"
+  ],
+  "domains": [
+    "medical",
+    "healthcare",
+    "clinical"
+  ],
+  "tasks": [
+    "question-answering",
+    "reasoning",
+    "summarization",
+    "classification"
+  ],
+  "input_types": ["text"],
+  "output_types": ["text"],
+  "resources": {
+    "vram_gb": 10.0,
+    "ram_gb": 16.0,
+    "disk_gb": 8.0,
+    "gpu_required": true,
+    "min_compute_capability": 7.0
+  },
+  "performance": {
+    "latency_ms": 400,
+    "throughput_tps": 60,
+    "cost_relative": 1.0,
+    "quality_score": 0.89
+  },
+  "model_path": "google/medgemma-4b-it",
+  "model_type": "transformers",
+  "model_class": "AutoModelForCausalLM",
+  "trust_remote_code": false,
+  "description": "Medical domain expert based on Gemma. Specialized for clinical reasoning, medical question answering, diagnosis support, and patient education. Trained on medical literature and clinical data.",
+  "author": "Google",
+  "license": "gemma",
+  "tags": ["medical", "healthcare", "clinical", "gemma", "instruction-tuned"],
+  "benchmarks": {
+    "medqa": 0.72,
+    "pubmedqa": 0.78,
+    "medmcqa": 0.68
+  },
+  "sample_inputs": [
+    "What are the symptoms of diabetes?",
+    "Explain the mechanism of action of metformin",
+    "What drug interactions should I be aware of with warfarin?",
+    "Summarize this patient's medical history",
+    "What could cause sudden chest pain and shortness of breath?"
+  ],
+  "sample_outputs": [
+    "Common symptoms of diabetes include increased thirst, frequent urination, fatigue, blurred vision, and slow wound healing...",
+    "Metformin works primarily by reducing hepatic glucose production and improving insulin sensitivity in peripheral tissues..."
+  ]
+}

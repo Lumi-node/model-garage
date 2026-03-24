@@ -1,0 +1,70 @@
+{
+  "id": "phi-4",
+  "name": "Phi-4",
+  "version": "1.0.0",
+  "capabilities": [
+    "general-reasoning",
+    "math-reasoning",
+    "code-generation",
+    "code-explanation",
+    "logical-reasoning",
+    "problem-solving",
+    "text-generation",
+    "instruction-following"
+  ],
+  "domains": [
+    "general",
+    "math",
+    "code",
+    "science",
+    "logic"
+  ],
+  "tasks": [
+    "reasoning",
+    "generation",
+    "question-answering",
+    "coding",
+    "explanation"
+  ],
+  "input_types": ["text"],
+  "output_types": ["text", "code"],
+  "resources": {
+    "vram_gb": 16.0,
+    "ram_gb": 24.0,
+    "disk_gb": 14.0,
+    "gpu_required": true,
+    "min_compute_capability": 7.0
+  },
+  "performance": {
+    "latency_ms": 300,
+    "throughput_tps": 80,
+    "cost_relative": 1.2,
+    "quality_score": 0.92
+  },
+  "model_path": "microsoft/phi-4",
+  "model_type": "transformers",
+  "model_class": "AutoModelForCausalLM",
+  "trust_remote_code": true,
+  "description": "Microsoft's Phi-4 is a state-of-the-art small language model excelling at reasoning, math, and code. Achieves performance comparable to much larger models through high-quality training data and innovative training techniques.",
+  "author": "Microsoft",
+  "license": "mit",
+  "tags": ["reasoning", "math", "code", "slm", "microsoft", "phi"],
+  "benchmarks": {
+    "mmlu": 0.84,
+    "gsm8k": 0.91,
+    "humaneval": 0.82,
+    "math": 0.78,
+    "arc_challenge": 0.89
+  },
+  "sample_inputs": [
+    "Solve this math problem: If a train travels at 60 mph for 2.5 hours, how far does it go?",
+    "Write a Python function to find the nth Fibonacci number",
+    "Explain the difference between recursion and iteration",
+    "What is the logical fallacy in this argument?",
+    "Help me debug this code that's throwing an index out of bounds error"
+  ],
+  "sample_outputs": [
+    "To find the distance, multiply speed by time: 60 mph × 2.5 hours = 150 miles...",
+    "def fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n-1) + fibonacci(n-2)..."
+  ]
+}

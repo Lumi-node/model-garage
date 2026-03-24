@@ -1,0 +1,112 @@
+{
+  "model_id": "facebook/esm2_t12_35M_UR50D",
+  "family": "esm",
+  "hidden_dim": 480,
+  "num_layers": 12,
+  "num_heads": 20,
+  "vocab_size": 33,
+  "parts": {
+    "embedding": {
+      "type": "embedding"
+    },
+    "layer_0_full": {
+      "type": "full_layer",
+      "layer_idx": 0
+    },
+    "layer_0_attention": {
+      "type": "attention",
+      "layer_idx": 0
+    },
+    "layer_1_full": {
+      "type": "full_layer",
+      "layer_idx": 1
+    },
+    "layer_1_attention": {
+      "type": "attention",
+      "layer_idx": 1
+    },
+    "layer_2_full": {
+      "type": "full_layer",
+      "layer_idx": 2
+    },
+    "layer_2_attention": {
+      "type": "attention",
+      "layer_idx": 2
+    },
+    "layer_3_full": {
+      "type": "full_layer",
+      "layer_idx": 3
+    },
+    "layer_3_attention": {
+      "type": "attention",
+      "layer_idx": 3
+    },
+    "layer_4_full": {
+      "type": "full_layer",
+      "layer_idx": 4
+    },
+    "layer_4_attention": {
+      "type": "attention",
+      "layer_idx": 4
+    },
+    "layer_5_full": {
+      "type": "full_layer",
+      "layer_idx": 5
+    },
+    "layer_5_attention": {
+      "type": "attention",
+      "layer_idx": 5
+    },
+    "layer_6_full": {
+      "type": "full_layer",
+      "layer_idx": 6
+    },
+    "layer_6_attention": {
+      "type": "attention",
+      "layer_idx": 6
+    },
+    "layer_7_full": {
+      "type": "full_layer",
+      "layer_idx": 7
+    },
+    "layer_7_attention": {
+      "type": "attention",
+      "layer_idx": 7
+    },
+    "layer_8_full": {
+      "type": "full_layer",
+      "layer_idx": 8
+    },
+    "layer_8_attention": {
+      "type": "attention",
+      "layer_idx": 8
+    },
+    "layer_9_full": {
+      "type": "full_layer",
+      "layer_idx": 9
+    },
+    "layer_9_attention": {
+      "type": "attention",
+      "layer_idx": 9
+    },
+    "layer_10_full": {
+      "type": "full_layer",
+      "layer_idx": 10
+    },
+    "layer_10_attention": {
+      "type": "attention",
+      "layer_idx": 10
+    },
+    "layer_11_full": {
+      "type": "full_layer",
+      "layer_idx": 11
+    },
+    "layer_11_attention": {
+      "type": "attention",
+      "layer_idx": 11
+    },
+    "contact_head": {
+      "type": "output_head"
+    }
+  }
+}
