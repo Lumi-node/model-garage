@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+*.egg
+.venv/
+venv/
+ENV/
+
+# Model weights (never track)
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.onnx
+*.h5
+models/
+
+# Data
+*.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Testing/Linting
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Env
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
