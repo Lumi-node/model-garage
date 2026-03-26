@@ -53,6 +53,9 @@ htmlcov/
 *.fdb_latexmk
 *.synctex.gz
 
+# MkDocs
+site/
+
 # OS
 .DS_Store
 Thumbs.db

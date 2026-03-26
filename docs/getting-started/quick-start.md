@@ -1,36 +1,26 @@
-# Getting Started
+# Quick Start
 
-## Installation
+Your first model surgery in 5 minutes.
 
-```bash
-pip install model-garage
-```
+## 1. Open a Model
 
-For development:
-```bash
-git clone https://github.com/model-garage/model-garage
-cd model-garage
-pip install -e ".[dev]"
-```
+=== "Python"
 
-## Your First Surgery
+    ```python
+    from model_garage import ModelLoader
 
-### 1. Open a model
+    loader = ModelLoader()
+    model, tokenizer, info = loader.load("gpt2")
+    print(f"Loaded {info['model_id']}: {info['total_params']:,} parameters")
+    ```
 
-```python
-from model_garage import ModelLoader
+=== "CLI"
 
-loader = ModelLoader()
-model, tokenizer, info = loader.load("gpt2")
-print(f"Loaded {info['model_id']}: {info['total_params']:,} parameters")
-```
+    ```bash
+    garage open gpt2
+    ```
 
-Or from the CLI:
-```bash
-garage open gpt2
-```
-
-### 2. Decompose it into parts
+## 2. Decompose Into Parts
 
 ```python
 from model_garage import ModelRegistry
@@ -43,7 +33,9 @@ for name, part in list(spec.parts.items())[:5]:
     print(f"  {name}: {part.part_type.value} [{part.input_dim}d]")
 ```
 
-### 3. Extract a component
+The registry analyzes the model architecture and catalogs every extractable component — attention heads, FFN layers, embeddings, normalization layers, and the output head.
+
+## 3. Extract a Component
 
 ```python
 from model_garage.extract.pytorch import PyTorchExtractor
@@ -62,7 +54,11 @@ result = tester.test_attention(attn)
 print(f"Test: {'PASS' if result['success'] else 'FAIL'}")
 ```
 
-### 4. Inject modifications
+!!! tip "Real Modules"
+    Extracted components are real `nn.Module` objects with full parameters.
+    You can run them, analyze them, save them, or transplant them into another model.
+
+## 4. Inject Modifications
 
 ```python
 import torch
@@ -78,19 +74,24 @@ with LayerInjector(model) as injector:
 print(tokenizer.decode(output[0]))
 ```
 
-### 5. Capture hidden states
+Injections are applied as context managers — they modify the forward pass temporarily and clean up automatically when the `with` block exits.
+
+## 5. Capture Hidden States
 
 ```python
 from model_garage.snapshot.capture import SnapshotCapture
 
 capture = SnapshotCapture(model)
-snapshots = capture.run(input_ids, layers=["transformer.h.0", "transformer.h.6", "transformer.h.11"])
+snapshots = capture.run(
+    input_ids,
+    layers=["transformer.h.0", "transformer.h.6", "transformer.h.11"]
+)
 
 for name, snap in snapshots.items():
     print(f"{name}: mean={snap.mean_activation:.4f}, sparsity={snap.sparsity:.2%}")
 ```
 
-### 6. Compare models
+## 6. Compare Models
 
 ```python
 model_b, _, _ = loader.load("distilgpt2")
@@ -103,7 +104,7 @@ print(f"Compatible: {comparison['compatible_parts']}")
 
 ## Next Steps
 
-- See [examples/](../examples/) for more complete scripts
-- Read [BLADE_PRINCIPLES.md](../research/BLADE_PRINCIPLES.md) for capability transfer rules
-- Check [philosophy.md](philosophy.md) for the "Gear Head" design philosophy
-- See [CONTRIBUTING.md](../CONTRIBUTING.md) to add support for new model families
+- Learn about the [core concepts](concepts.md) behind the library
+- Deep dive into [extraction](../guides/extraction.md), [injection](../guides/injection.md), or [analysis](../guides/analysis.md)
+- Read the [research papers](../research/index.md) for validated methodologies
+- See the [examples/](https://github.com/Lumi-node/model-garage/tree/main/examples) directory for complete scripts

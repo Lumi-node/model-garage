@@ -1,0 +1,137 @@
+site_name: Model Garage
+site_url: https://lumi-node.github.io/model-garage/
+site_description: "Open the hood on neural networks. Component-level model surgery, analysis, and composition."
+site_author: Model Garage Contributors
+repo_url: https://github.com/Lumi-node/model-garage
+repo_name: Lumi-node/model-garage
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: slate
+      primary: cyan
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_source: true
+            show_root_heading: true
+            show_root_full_path: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            heading_level: 2
+            members_order: source
+            docstring_style: google
+            show_if_no_docstring: false
+            annotations_path: brief
+            separate_signature: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Lumi-node/model-garage
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/model-garage/
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+copyright: Copyright &copy; 2026 Automate Capture LLC — Apache 2.0 License
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+    - Concepts: getting-started/concepts.md
+  - Guides:
+    - Extraction: guides/extraction.md
+    - Injection: guides/injection.md
+    - Analysis: guides/analysis.md
+    - Composition: guides/composition.md
+    - Self-Debate: guides/debate.md
+    - CLI Reference: guides/cli.md
+  - Research:
+    - Overview: research/index.md
+    - "Blades: Capability Transfer": research/blades.md
+    - "MoE Router Miscalibration": research/moe-routing.md
+    - "Sparse Pathways": research/sparse-pathways.md
+  - API Reference:
+    - Core: reference/core.md
+    - Extract: reference/extract.md
+    - Inject: reference/inject.md
+    - Analyze: reference/analyze.md
+    - Compose: reference/compose.md
+    - Registry: reference/registry.md
+    - Snapshot: reference/snapshot.md
+  - Philosophy: philosophy.md
+  - Contributing: contributing.md

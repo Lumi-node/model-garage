@@ -16,7 +16,7 @@ Every tool in Model Garage maps to a mechanic's toolkit:
 | **Extractors** | Wrenches & socket sets | Pull components out of models |
 | **Injectors** | Pneumatic tools | Install new parts mid-layer |
 | **Analyzers** | Diagnostic scanner (OBD-II) | Read what each component is doing |
-| **Builders** | Engine build bench | Assemble hybrids from extracted parts |
+| **Composers** | Engine build bench | Assemble hybrids from extracted parts |
 | **Registry** | Parts catalog | Track what you have and where it came from |
 | **Snapshots** | High-speed camera | Capture hidden states in motion |
 

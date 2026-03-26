@@ -40,18 +40,23 @@ dev = [
 dashboard = [
     "textual>=0.40",
 ]
+docs = [
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.24",
+    "pymdown-extensions>=10.0",
+]
 all = [
-    "model-garage[dev,dashboard]",
+    "model-garage[dev,dashboard,docs]",
 ]
 
 [project.scripts]
 garage = "model_garage.cli.app:app"
 
 [project.urls]
-Homepage = "https://github.com/model-garage/model-garage"
-Documentation = "https://github.com/model-garage/model-garage/tree/main/docs"
-Repository = "https://github.com/model-garage/model-garage"
-Issues = "https://github.com/model-garage/model-garage/issues"
+Homepage = "https://github.com/Lumi-node/model-garage"
+Documentation = "https://lumi-node.github.io/model-garage/"
+Repository = "https://github.com/Lumi-node/model-garage"
+Issues = "https://github.com/Lumi-node/model-garage/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/model_garage"]
