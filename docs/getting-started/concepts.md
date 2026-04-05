@@ -104,4 +104,4 @@ Model Garage recognizes these component types in transformer architectures:
 
 ## Supported Model Families
 
-Each model family has a `ModelDecomposer` that understands its architecture. See the [full list of supported models](../index.md#supported-architectures) or learn how to [contribute a new family](../contributing.md).
+Each model family has a `ModelDecomposer` that understands its architecture. 70+ models have been validated, but Model Garage works on **any PyTorch transformer** — if a model uses standard attention/FFN/norm patterns, existing decomposers will detect it automatically. Adding support for a new family is a single class. See the [full list of validated models](../index.md#supported-architectures) or learn how to [contribute a new family](../contributing.md).

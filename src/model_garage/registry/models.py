@@ -15,6 +15,7 @@ Supported model families:
 - Llama (llama-2-7b, llama-3-8b, etc.)
 - Mistral (mistral-7b, mixtral-8x7b)
 - Gemma (gemma-2b, gemma-7b, gemma-2-9b)
+- Gemma 4 (gemma-4-E2B, E4B, 31B, 26B-A4B — multimodal MoE)
 - Qwen (qwen-1.5-7b, qwen-2-7b)
 - Phi (phi-2, phi-3-mini)
 """
@@ -35,6 +36,7 @@ class ModelFamily(Enum):
     LLAMA = "llama"
     MISTRAL = "mistral"
     GEMMA = "gemma"
+    GEMMA4 = "gemma4"
     QWEN = "qwen"
     PHI = "phi"
     UNKNOWN = "unknown"
@@ -50,6 +52,9 @@ class PartType(Enum):
     ROTARY_EMB = "rotary_emb"         # RoPE embeddings (modern models)
     GATE = "gate"                     # MoE gating (Mixtral, etc.)
     FULL_LAYER = "full_layer"         # Complete transformer layer
+    VISION_ENCODER = "vision_encoder" # Vision tower (SigLIP, etc.)
+    AUDIO_ENCODER = "audio_encoder"   # Audio tower (USM, etc.)
+    EXPERT = "expert"                 # Individual MoE expert
 
 
 @dataclass
@@ -395,6 +400,224 @@ class GemmaDecomposer(LlamaDecomposer):
         return spec
 
 
+class Gemma4Decomposer(ModelDecomposer):
+    """
+    Decomposer for Gemma 4 family — multimodal MoE models.
+
+    Gemma 4 variants:
+    - E2B (5.1B total, 2.3B effective): 35 layers, text+image+audio
+    - E4B (8B total, 4.5B effective): 42 layers, text+image+audio
+    - 31B Dense (30.7B): 60 layers, text+image only
+    - 26B-A4B (27B MoE): MoE variant with selective activation
+
+    Architecture features:
+    - Sliding window attention (512 or 1024 tokens)
+    - 128K-256K context length
+    - SigLIP vision encoder (~150M or ~550M params)
+    - USM audio encoder (~300M params, not on 31B)
+    - 262K vocabulary (largest in Gemma family)
+    """
+
+    def detect(self, model: nn.Module, model_id: str) -> bool:
+        model_lower = model_id.lower()
+        return "gemma-4" in model_lower or "gemma4" in model_lower
+
+    def decompose(self, model: nn.Module, model_id: str) -> ModelSpec:
+        config = model.config
+
+        hidden_size = config.hidden_size
+        num_layers = config.num_hidden_layers
+        num_heads = config.num_attention_heads
+        vocab_size = config.vocab_size
+
+        # Detect MoE vs Dense
+        is_moe = hasattr(config, "num_local_experts") or "A4B" in model_id
+        num_experts = getattr(config, "num_local_experts", None)
+        num_experts_per_tok = getattr(config, "num_experts_per_tok", None)
+
+        # Detect modalities
+        has_vision = hasattr(model, "vision_tower") or hasattr(model, "vision_encoder")
+        has_audio = hasattr(model, "audio_tower") or hasattr(model, "audio_encoder")
+
+        spec = ModelSpec(
+            model_id=model_id,
+            family=ModelFamily.GEMMA4,
+            hidden_dim=hidden_size,
+            num_layers=num_layers,
+            num_heads=num_heads,
+            vocab_size=vocab_size,
+            max_seq_len=getattr(config, "max_position_embeddings", 131072),
+            extra_info={
+                "num_kv_heads": getattr(config, "num_key_value_heads", num_heads),
+                "sliding_window": getattr(config, "sliding_window", None),
+                "is_moe": is_moe,
+                "num_experts": num_experts,
+                "num_experts_per_tok": num_experts_per_tok,
+                "has_vision": has_vision,
+                "has_audio": has_audio,
+                "rope_theta": getattr(config, "rope_theta", 10000.0),
+            }
+        )
+
+        # Embedding
+        spec.parts["embedding"] = PartSpec(
+            part_type=PartType.EMBEDDING,
+            layer_idx=None,
+            module_path="model.embed_tokens",
+            input_dim=vocab_size,
+            output_dim=hidden_size,
+        )
+
+        # Vision encoder (if present)
+        if has_vision:
+            vision_path = "vision_tower" if hasattr(model, "vision_tower") else "vision_encoder"
+            vision_params = sum(
+                p.numel() for p in getattr(model, vision_path).parameters()
+            ) if hasattr(model, vision_path) else 0
+            spec.parts["vision_encoder"] = PartSpec(
+                part_type=PartType.VISION_ENCODER,
+                layer_idx=None,
+                module_path=vision_path,
+                input_dim=0,
+                output_dim=hidden_size,
+                extra_info={"total_params": vision_params}
+            )
+
+        # Audio encoder (if present)
+        if has_audio:
+            audio_path = "audio_tower" if hasattr(model, "audio_tower") else "audio_encoder"
+            audio_params = sum(
+                p.numel() for p in getattr(model, audio_path).parameters()
+            ) if hasattr(model, audio_path) else 0
+            spec.parts["audio_encoder"] = PartSpec(
+                part_type=PartType.AUDIO_ENCODER,
+                layer_idx=None,
+                module_path=audio_path,
+                input_dim=0,
+                output_dim=hidden_size,
+                extra_info={"total_params": audio_params}
+            )
+
+        # Transformer layers
+        for i in range(num_layers):
+            head_dim = hidden_size // num_heads
+
+            # Attention
+            spec.parts[f"attention_{i}"] = PartSpec(
+                part_type=PartType.ATTENTION,
+                layer_idx=i,
+                module_path=f"model.layers.{i}.self_attn",
+                input_dim=hidden_size,
+                output_dim=hidden_size,
+                num_heads=num_heads,
+                head_dim=head_dim,
+                extra_info={
+                    "num_kv_heads": getattr(
+                        config, "num_key_value_heads", num_heads
+                    ),
+                }
+            )
+
+            # FFN — MoE or Dense
+            if is_moe and num_experts:
+                # MoE gate
+                spec.parts[f"gate_{i}"] = PartSpec(
+                    part_type=PartType.GATE,
+                    layer_idx=i,
+                    module_path=f"model.layers.{i}.block_sparse_moe.gate",
+                    input_dim=hidden_size,
+                    output_dim=num_experts,
+                    extra_info={
+                        "num_experts": num_experts,
+                        "top_k": num_experts_per_tok,
+                    }
+                )
+                # Individual experts
+                intermediate_size = getattr(config, "intermediate_size", hidden_size * 4)
+                for e in range(num_experts):
+                    spec.parts[f"expert_{i}_{e}"] = PartSpec(
+                        part_type=PartType.EXPERT,
+                        layer_idx=i,
+                        module_path=f"model.layers.{i}.block_sparse_moe.experts.{e}",
+                        input_dim=hidden_size,
+                        output_dim=hidden_size,
+                        intermediate_dim=intermediate_size,
+                        extra_info={"expert_idx": e}
+                    )
+            else:
+                # Dense FFN
+                intermediate_size = getattr(config, "intermediate_size", hidden_size * 4)
+                spec.parts[f"ffn_{i}"] = PartSpec(
+                    part_type=PartType.FFN,
+                    layer_idx=i,
+                    module_path=f"model.layers.{i}.mlp",
+                    input_dim=hidden_size,
+                    output_dim=hidden_size,
+                    intermediate_dim=intermediate_size,
+                    extra_info={"activation": "gelu"}
+                )
+
+            # RMSNorm layers
+            spec.parts[f"input_layernorm_{i}"] = PartSpec(
+                part_type=PartType.LAYER_NORM,
+                layer_idx=i,
+                module_path=f"model.layers.{i}.input_layernorm",
+                input_dim=hidden_size,
+                output_dim=hidden_size,
+                extra_info={"type": "rmsnorm"}
+            )
+
+            spec.parts[f"post_attention_layernorm_{i}"] = PartSpec(
+                part_type=PartType.LAYER_NORM,
+                layer_idx=i,
+                module_path=f"model.layers.{i}.post_attention_layernorm",
+                input_dim=hidden_size,
+                output_dim=hidden_size,
+                extra_info={"type": "rmsnorm"}
+            )
+
+            # Full layer
+            spec.parts[f"layer_{i}"] = PartSpec(
+                part_type=PartType.FULL_LAYER,
+                layer_idx=i,
+                module_path=f"model.layers.{i}",
+                input_dim=hidden_size,
+                output_dim=hidden_size,
+                num_heads=num_heads,
+                intermediate_dim=getattr(config, "intermediate_size", hidden_size * 4),
+            )
+
+        # Final norm
+        spec.parts["norm"] = PartSpec(
+            part_type=PartType.LAYER_NORM,
+            layer_idx=None,
+            module_path="model.norm",
+            input_dim=hidden_size,
+            output_dim=hidden_size,
+            extra_info={"type": "rmsnorm"}
+        )
+
+        # Output head
+        spec.parts["output_head"] = PartSpec(
+            part_type=PartType.OUTPUT_HEAD,
+            layer_idx=None,
+            module_path="lm_head",
+            input_dim=hidden_size,
+            output_dim=vocab_size,
+        )
+
+        return spec
+
+    def get_module(self, model: nn.Module, part: PartSpec) -> nn.Module:
+        module = model
+        for attr in part.module_path.split("."):
+            if attr.isdigit():
+                module = module[int(attr)]
+            else:
+                module = getattr(module, attr)
+        return module
+
+
 class QwenDecomposer(LlamaDecomposer):
     """Decomposer for Qwen family - similar to Llama."""
 
@@ -537,6 +760,7 @@ class ModelRegistry:
             GPT2Decomposer(),
             LlamaDecomposer(),
             MistralDecomposer(),
+            Gemma4Decomposer(),  # Must be before GemmaDecomposer (gemma-4 matches gemma)
             GemmaDecomposer(),
             QwenDecomposer(),
             PhiDecomposer(),

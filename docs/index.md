@@ -110,7 +110,7 @@ and build hybrid architectures — all from a beautiful CLI or Python API.
 
 ## Supported Architectures
 
-70+ models across 18 vendors with full surgery support.
+70+ models validated across 18 vendors — but Model Garage works on **any PyTorch transformer**. If a model follows standard attention/FFN/norm patterns, the existing decomposers will detect it automatically. Adding a new family is a single class. See [Contributing](contributing.md).
 
 | Family | Models | Capabilities |
 |--------|--------|-------------|
